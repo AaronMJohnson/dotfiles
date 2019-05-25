@@ -1,14 +1,6 @@
-" ###################################################################################
-" ### Author: Aaron M Johnson <johnsonaqw2@gmail.com>                             ###
-" ###################################################################################
-" ### Neovim Configuration for Web Development                                    ###
-" ### Neovimmer since : May 13 2019                                               ###
-" ###################################################################################
-
-" ===================================================================================
-" 1.0 Plugin manager (Plug) settings
-" ===================================================================================
-"{{{
+"  Author : Aaron M Johnson <johnsonaqw2@gmail.com>                             
+"  Neovim Configuration for Web Development                                  
+"  Neovimmer since : May 13 2019                                              
 
 " Autoinstall {{{
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -19,53 +11,48 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   augroup END
 endif
 " }}}
+
 call plug#begin('~/.config/nvim/plugged')
-
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" 1.1 Plugin list
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-" -----------------------------------------------------------------------------------
-"  Language Agnostic {{{
-" -----------------------------------------------------------------------------------
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Nerdtree file browser
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle']  } 
+" Syntax bundle
+Plug 'sheerun/vim-polyglot'
 " Automatic closing pairs 
 Plug 'cohama/lexima.vim'
-"}}}
-
-" -----------------------------------------------------------------------------------
-"  " JS (ES6, React) {{{
-" -----------------------------------------------------------------------------------
-
-" Modern JS support (indent, syntax, etc)
-Plug 'pangloss/vim-javascript'
-" JSX syntax
-Plug 'mxw/vim-jsx'
-" Typescript syntax
-Plug 'leafgarland/typescript-vim'
-" JSON syntax
-Plug 'sheerun/vim-json'
+" Snippet support (C-j)
+Plug 'SirVer/ultisnips'
+" Commenting support (gc)
+Plug 'tpope/vim-commentary'
+" CamelCase and snake_case motions
+Plug 'bkad/CamelCaseMotion'
+" Heuristically set indent settings
+Plug 'tpope/vim-sleuth'
 " Autocomplete (npm install -g tern)
 Plug 'carlitux/deoplete-ternjs'
 " JS Documentation comments
 Plug 'heavenshell/vim-jsdoc', { 'on': ['JsDoc'] }
-"}}}
-
-" -----------------------------------------------------------------------------------
-" HTML/CSS {{{
-" -----------------------------------------------------------------------------------
-
-" HTML5 syntax
-Plug 'othree/html5.vim'
-" SCSS syntax
-Plug 'cakebaker/scss-syntax.vim'
 " Color highlighter
 Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'javascript', 'javascript.jsx'] }
-"}}}
-
-" -----------------------------------------------------------------------------------
-" 
-" -----------------------------------------------------------------------------------
+" Lightline (simple status line)
+Plug 'itchyny/lightline.vim'
+" Buffers tabline
+Plug 'ap/vim-buftabline'
+" Fuzzy searching/replacing/etc
+Plug 'junegunn/fzf.vim'
+" Git swiss-army knife
+Plug 'tpope/vim-fugitive'
+" Git changes shown on line numbers
+Plug 'airblade/vim-gitgutter'
+" Material-monokai
+Plug 'skielbasa/vim-material-monokai'
+" Tender 
+Plug 'jacoborus/tender.vim'
+" Solarized
+Plug 'altercation/vim-colors-solarized'
+" Surround (cs"')
+Plug 'tpope/vim-surround'
+"Nova 
+Plug 'trevordmiller/nova-vim'
 call plug#end()
-"}}}
