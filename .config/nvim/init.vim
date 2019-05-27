@@ -56,3 +56,11 @@ Plug 'altercation/vim-colors-solarized'
 " Surround (cs"')
 Plug 'tpope/vim-surround'
 call plug#end()
+
+let g:lightline = {
+    \ 'colorscheme' : 'palenight',
+    \ }
+
+"Colorscheme
+set termguicolors
+colorscheme palenight
