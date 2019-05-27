@@ -47,12 +47,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " Material-monokai
 Plug 'skielbasa/vim-material-monokai'
-" Tender 
-Plug 'jacoborus/tender.vim'
+" Onedark
+Plug 'joshdick/onedark.vim'
+" Palenight
+Plug 'drewtempelmeyer/palenight.vim'
 " Solarized
 Plug 'altercation/vim-colors-solarized'
 " Surround (cs"')
 Plug 'tpope/vim-surround'
-"Nova 
-Plug 'trevordmiller/nova-vim'
 call plug#end()
