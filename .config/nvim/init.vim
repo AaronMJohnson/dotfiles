@@ -45,18 +45,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 " Git changes shown on line numbers
 Plug 'airblade/vim-gitgutter'
-" Material-monokai
-Plug 'skielbasa/vim-material-monokai'
-" Onedark
-Plug 'joshdick/onedark.vim'
 " Palenight
 Plug 'drewtempelmeyer/palenight.vim'
-" Solarized
-Plug 'altercation/vim-colors-solarized'
 " Surround (cs"')
 Plug 'tpope/vim-surround'
 call plug#end()
 
+" Lightline config
 let g:lightline = {
     \ 'colorscheme' : 'palenight',
     \ }
