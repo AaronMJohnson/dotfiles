@@ -19,6 +19,8 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle']  } 
 " Syntax bundle
 Plug 'sheerun/vim-polyglot'
+" Formatting
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Automatic closing pairs 
 Plug 'cohama/lexima.vim'
 " Snippet support (C-j)
@@ -27,6 +29,8 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-commentary'
 " CamelCase and snake_case motions
 Plug 'bkad/CamelCaseMotion'
+" Indent guides
+Plug 'nathanaelkane/vim-indent-guides'
 " Heuristically set indent settings
 Plug 'tpope/vim-sleuth'
 " JS Documentation comments
@@ -59,11 +63,22 @@ set showcmd
 set showmode
 set cursorline
 set hidden
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set smartindent
 
 " Performance
 set lazyredraw
 set ttyfast
 set synmaxcol=512
+
+" Leader Space
+let mapleader="\<Space>"
+
+" Buffer Switching
+nnoremap <leader>k :bn<CR>
+nnoremap <leader>j :bp<CR>
 
 " NERDTree 
 let NERDTreeShowHidden=1 
@@ -73,6 +88,11 @@ let g:NERDTreeQuitOnOpen=1
 " fzf
 nnoremap <C-P> :Files<CR>
 
+" Prettier
+let g:prettier#config#parser = 'babylon'
+
+" Indent
+let g:indent_guides_guide_size = 1
 
 " Lightline config
 let g:lightline = {
