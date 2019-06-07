@@ -4,27 +4,23 @@
 
 " Autoinstall {{{
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  augroup plug_install
-    autocmd VimEnter * PlugInstall
-  augroup END
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    augroup plug_install
+        autocmd VimEnter * PlugInstall
+    augroup END
 endif
 " }}}
 
 call plug#begin('~/.config/nvim/plugged')
 " Autocomplete
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'} 
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " Nerdtree file browser
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle']  } 
 " Syntax bundle
 Plug 'sheerun/vim-polyglot'
-" Formatting
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Automatic closing pairs 
 Plug 'cohama/lexima.vim'
-" Snippet support (C-j)
-Plug 'SirVer/ultisnips'
 " Commenting support (gc)
 Plug 'tpope/vim-commentary'
 " CamelCase and snake_case motions
@@ -52,6 +48,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'drewtempelmeyer/palenight.vim'
 " Surround (cs"')
 Plug 'tpope/vim-surround'
+" Devicons
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " General
@@ -64,19 +62,19 @@ set showmode
 set cursorline
 set hidden
 set expandtab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set smartindent
 
 " Performance
 set lazyredraw
 set ttyfast
-set synmaxcol=512
 
 " Leader Space
 let mapleader="\<Space>"
 
 " Buffer Switching
+nnoremap <leader>b :ls<CR>:b<space>
 nnoremap <leader>k :bn<CR>
 nnoremap <leader>j :bp<CR>
 
@@ -88,17 +86,23 @@ let g:NERDTreeQuitOnOpen=1
 " fzf
 nnoremap <C-P> :Files<CR>
 
-" Prettier
-let g:prettier#config#parser = 'babylon'
-
-" Indent
+" Indent leader<ig>
 let g:indent_guides_guide_size = 1
 
 " Lightline config
 let g:lightline = {
-    \ 'colorscheme' : 'palenight',
-    \ }
+            \ 'colorscheme' : 'palenight',
+            \ }
 
-"Colorscheme
+" Coc
+" Use <tab> and <S-tab> for navigation and <enter> for completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"Coc prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+nnoremap <leader>p :Prettier<CR>
+
+" Colorscheme
 set termguicolors
 colorscheme palenight
