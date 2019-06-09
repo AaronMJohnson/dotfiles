@@ -4,11 +4,11 @@
 
 " Autoinstall {{{
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    augroup plug_install
-        autocmd VimEnter * PlugInstall
-    augroup END
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	augroup plug_install
+		autocmd VimEnter * PlugInstall
+	augroup END
 endif
 " }}}
 
@@ -55,8 +55,7 @@ call plug#end()
 " General
 set encoding=utf-8
 set fileencoding=utf-8
-set number
-set relativenumber
+set number relativenumber
 set showcmd
 set showmode
 set cursorline
@@ -64,19 +63,28 @@ set hidden
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
+set autoindent
 set smartindent
 
 " Performance
 set lazyredraw
-set ttyfast
 
 " Leader Space
 let mapleader="\<Space>"
 
 " Buffer Switching
-nnoremap <leader>b :ls<CR>:b<space>
 nnoremap <leader>k :bn<CR>
 nnoremap <leader>j :bp<CR>
+
+"Split Behavior
+set splitbelow splitright
+
+"Split Navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
 " NERDTree 
 let NERDTreeShowHidden=1 
@@ -85,14 +93,15 @@ let g:NERDTreeQuitOnOpen=1
 
 " fzf
 nnoremap <C-P> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
 
 " Indent leader<ig>
 let g:indent_guides_guide_size = 1
 
 " Lightline config
 let g:lightline = {
-            \ 'colorscheme' : 'palenight',
-            \ }
+			\ 'colorscheme' : 'palenight',
+			\ }
 
 " Coc
 " Use <tab> and <S-tab> for navigation and <enter> for completion
