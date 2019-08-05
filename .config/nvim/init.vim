@@ -29,6 +29,10 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'nathanaelkane/vim-indent-guides'
 " Heuristically set indent settings
 Plug 'tpope/vim-sleuth'
+" Prettier
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 " JS Documentation comments
 Plug 'heavenshell/vim-jsdoc', { 'on': ['JsDoc'] }
 " Color highlighter
@@ -108,9 +112,6 @@ let g:lightline = {
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"Coc prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-nnoremap <leader>p :Prettier<CR>
 
 " Colorscheme
 set termguicolors
